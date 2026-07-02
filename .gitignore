@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+
+# Production
+build
+dist
+*.apk
+*.aar
+*.jks
+*.keystore
+
+# Android
+android/build
+android/.gradle
+android/app/build
+android/app/.gradle
+android/.idea
+android/local.properties
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# React Native
+.env
+.env.local
+.env.*.local
+
+# Gradle
+.gradle
+
+# Metro
+.metro-bundler-cache
