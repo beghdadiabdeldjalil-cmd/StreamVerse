@@ -11,10 +11,10 @@ import {
   Platform,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import IPTVService from '../services/iptvService';
-import { setServerConfig } from '../services/storage';
-import { useAppStore } from '../store/appStore';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import IPTVService from '../../services/iptvService';
+import { setServerConfig } from '../../services/storage';
+import { useAppStore } from '../../store/AppStore';
 
 type ConnectScreenProps = NativeStackScreenProps<RootStackParamList, 'Connect'>;
 

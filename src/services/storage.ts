@@ -12,10 +12,10 @@ export const StorageKeys = {
 };
 
 export const setServerConfig = (url: string, username: string, password: string) => {
-  storage.setString(StorageKeys.SERVER_URL, url);
-  storage.setString(StorageKeys.USERNAME, username);
-  storage.setString(StorageKeys.PASSWORD, password);
-  storage.setBoolean(StorageKeys.IS_AUTHENTICATED, true);
+  storage.set(StorageKeys.SERVER_URL, url);
+  storage.set(StorageKeys.USERNAME, username);
+  storage.set(StorageKeys.PASSWORD, password);
+  storage.set(StorageKeys.IS_AUTHENTICATED, true);
 };
 
 export const getServerConfig = () => ({
@@ -37,7 +37,7 @@ export const addFavorite = (channelId: string) => {
   const favorites = JSON.parse(storage.getString(StorageKeys.FAVORITES) || '[]');
   if (!favorites.includes(channelId)) {
     favorites.push(channelId);
-    storage.setString(StorageKeys.FAVORITES, JSON.stringify(favorites));
+    storage.set(StorageKeys.FAVORITES, JSON.stringify(favorites));
   }
 };
 
@@ -46,7 +46,7 @@ export const removeFavorite = (channelId: string) => {
   const index = favorites.indexOf(channelId);
   if (index > -1) {
     favorites.splice(index, 1);
-    storage.setString(StorageKeys.FAVORITES, JSON.stringify(favorites));
+    storage.set(StorageKeys.FAVORITES, JSON.stringify(favorites));
   }
 };
 

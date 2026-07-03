@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import { logout, getServerConfig } from '../services/storage';
-import { useAppStore } from '../store/appStore';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { logout, getServerConfig } from '../../services/storage';
+import { useAppStore } from '../../store/AppStore';
 
 type SettingsScreenProps = NativeStackScreenProps<RootStackParamList, 'Settings'>;
 

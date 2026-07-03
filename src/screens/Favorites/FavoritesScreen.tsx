@@ -9,10 +9,11 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import FastImage from 'react-native-fast-image';
-import { getFavorites, removeFavorite } from '../services/storage';
-import { useAppStore } from '../store/appStore';
+import { getFavorites, removeFavorite } from '../../services/storage';
+import { useAppStore } from '../../store/AppStore';
+import { Channel } from '../../services/iptvService';
 
 type FavoritesScreenProps = NativeStackScreenProps<RootStackParamList, 'Favorites'>;
 
@@ -32,7 +33,7 @@ export default function FavoritesScreen({ navigation }: FavoritesScreenProps) {
     loadFavorites();
   }, []);
 
-  const favoriteChannels = channels.filter((channel) => favorites.includes(channel.id));
+  const favoriteChannels = channels.filter((channel: Channel) => favorites.includes(channel.id));
 
   const handleRemoveFavorite = (channelId: string) => {
     removeFavorite(channelId);

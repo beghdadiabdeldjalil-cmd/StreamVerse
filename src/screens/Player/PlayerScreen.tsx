@@ -8,10 +8,11 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import Video from 'react-native-video';
-import { addFavorite, removeFavorite, isFavorite } from '../services/storage';
-import { useAppStore } from '../store/appStore';
+import { addFavorite, removeFavorite, isFavorite } from '../../services/storage';
+import { useAppStore } from '../../store/AppStore';
+import { Channel } from '../../services/iptvService';
 
 type PlayerScreenProps = NativeStackScreenProps<RootStackParamList, 'Player'>;
 
@@ -24,9 +25,9 @@ export default function PlayerScreen({ navigation, route }: PlayerScreenProps) {
   const [error, setError] = useState<string | null>(null);
   const [controlsVisible, setControlsVisible] = useState(true);
   const videoRef = useRef<any>(null);
-  const controlsTimeoutRef = useRef<NodeJS.Timeout>();
+  const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const channel = channels.find((c) => c.id === channelId);
+  const channel = channels.find((c: Channel) => c.id === channelId);
 
   useEffect(() => {
     if (channel) {

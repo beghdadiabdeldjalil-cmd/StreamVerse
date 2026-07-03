@@ -10,8 +10,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import { useAppStore } from '../store/appStore';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { useAppStore } from '../../store/AppStore';
 import FastImage from 'react-native-fast-image';
 
 type SearchScreenProps = NativeStackScreenProps<RootStackParamList, 'Search'>;

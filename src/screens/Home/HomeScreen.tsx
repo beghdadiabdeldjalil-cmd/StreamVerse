@@ -10,8 +10,9 @@ import {
   TextInput,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import { useAppStore } from '../store/appStore';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { useAppStore } from '../../store/AppStore';
+import { Channel } from '../../services/iptvService';
 import FastImage from 'react-native-fast-image';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
@@ -47,7 +48,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
     }
   }, [selectedCategory]);
 
-  const filteredChannels = channels.filter((channel) =>
+  const filteredChannels = channels.filter((channel: Channel) =>
     channel.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
